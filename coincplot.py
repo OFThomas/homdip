@@ -6,32 +6,22 @@ import matplotlib.pyplot as plt
 
 #hardcoded for testing
 datafile='inverter60s_000.out'
-coincidencewindow=10000000
-bins=25
-count=0
+bins=50
 delay=[]
 
-#converts nanoseconds to picoseconds
-coincidencewindow=coincidencewindow*1000
+#split data into two columns
+channel, time = np.genfromtxt(datafile, unpack=True)
 
-channel, time = np.genfromtxt(datafile, unpack=True) #split data into two columns
-
-numphotons= len(channel)
-
-for i in range(1, numphotons-1):
+for i in range(1, len(channel)-1):
 	if channel[i] == 0 and  channel[i+1]==1:
- 		 delay.append(time[i+1] - time[i])
+ 		 delay.append((time[i+1] - time[i])/10**12)
 
+maxrange=0.01*max(delay)
 
-#print delay
-#y=ch
-
-#xp=np.linspace(min(x),max(x), 100)
-
-plt.hist(delay,bins=bins, range=(0,10000000))
+plt.hist(delay,bins=bins, range=(0,maxrange))
 
 plt.ylabel('Counts')
-plt.xlabel('Time window')
+plt.xlabel('Time window (s)')
 plt.title('Time between counts ')
 
 #save graph 
@@ -39,6 +29,4 @@ d_name = datafile + '.png'
 plt.savefig(d_name, format='png')
 plt.clf()
 
-#save graph
-#plt.savefig('eform.png',format='png')
 
