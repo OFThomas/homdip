@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
-datafile='apd500mv300s.out'
-bins=50
+datafile='apd800mv300s.out'
+bins=100
 delay=[]
 rangeratio=1
 
@@ -26,7 +26,7 @@ plt.xlabel('Time window (s)')
 plt.title('Time between counts ')
 
 #save graph 
-d_name = datafile + '.png'
+d_name = datafile + str(bins) +'bin'+'.png'
 plt.savefig(d_name, format='png')
 plt.clf()
 
