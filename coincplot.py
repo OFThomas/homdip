@@ -1,13 +1,13 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#datafile=raw_input('enter data file name: ') # read in data file
+datafile=raw_input('enter data file name: ') # read in data file
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
-datafile='apd800mv300s.out'
+#datafile='apd800mv300s.out'
 #time window
-nstime=10
+nstime=10000
 #no. of bins
 bins=100
 
@@ -31,7 +31,7 @@ plt.xlabel('Time window (s)')
 plt.title('Time between counts ')
 
 #save graph 
-d_name = datafile + str(bins) +'bin'+'.png'
+d_name = datafile +'.png'
 plt.savefig(d_name, format='png')
 plt.clf()
 
