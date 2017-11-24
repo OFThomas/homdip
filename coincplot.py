@@ -11,6 +11,7 @@ nstime=10
 #no. of bins
 bins=100
 
+#max range of histogram to plot
 window=nstime*10**(-9)
 delay=[]
 
@@ -23,12 +24,8 @@ for i in range(1, len(channel)-1):
 		#covert from picos to seconds
  		 delay.append((time[i+1] - time[i])/10**12)
 
-#max range of histogram to plot
-maxrange=window
-
 #plot
-plt.hist(delay,bins=bins, range=(0,maxrange))
-
+plt.hist(delay,bins=bins, range=(0,window))
 plt.ylabel('Counts')
 plt.xlabel('Time window (s)')
 plt.title('Time between counts ')
