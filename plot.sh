@@ -3,5 +3,5 @@ do python coincplot.py << EOF
 $file
 EOF
 
-display $file.png &
+#display $file.png &
 done
