@@ -7,7 +7,7 @@ datafile=raw_input() # read in data file
 #hardcoded for testing
 #datafile='apd800mv300s.out'
 #time window
-nstime=20
+nstime=10
 #no. of bins
 bins=50
 
