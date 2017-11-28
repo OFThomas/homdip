@@ -32,12 +32,11 @@ for i in range(1, len(channel)-1):
  		 delay.append((time[i+1] - time[i])/10**12)
 
 chnlratio=float(countchnl0)/float(countchnl1)
+if chnlratio < 1.0:
+	chnlratio = 1/float(chnlratio)
 
-if (chnlratio >= 2):
+if (chnlratio >= 1):
 	print 'ERROR: Ratio of channels =', chnlratio
-	print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
-elif (chnlratio <= 2):
-	print 'ERROR: Ratio of channels =', 1/float(chnlratio)
 	print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
 
 #write out delay if order of nano seconds
@@ -46,7 +45,7 @@ for i in range(1,len(delay)):
 #		print i, delay[i]
 		count+=1
 
-print 'time window', nstime,'ns', 'Counts',count
+print 'time window', nstime,'ns', 'Coincidences',count
 
 #plot
 plt.hist(delay,bins=bins, range=(0,window))
@@ -56,5 +55,5 @@ plt.title('Time between counts ')
 
 #save graph 
 d_name = datafile +'.png'
-plt.savefig(d_name, format='png')
+plt.savefig('./png/'+d_name, format='png')
 plt.clf()
