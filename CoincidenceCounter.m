@@ -1,5 +1,6 @@
 % Open file and read in data
-fileID = fopen('test3_000.out');    %Change this file name
+filename = uigetfile('*.out');
+fileID = fopen(filename); 
 Data = fscanf(fileID, '%d %f', [2 Inf]);
 fclose(fileID);
 
