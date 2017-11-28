@@ -12,13 +12,12 @@ end
 % Add everything to one big file
 
 % New file name
-File = File(1:end-1);
-FileTime = str2num(File(end-1:end));
-File = File(1:end-2);
-File = strcat(File,int2str(FileTime*NoOfFiles),'s');
+FileTime = str2num(File(end-2:end-1));  %Extract time interval of small files
+File = File(1:end-3);
+File = strcat(File,int2str(FileTime*NoOfFiles),'s.out');
 
 % Create new file
-BigFile = fopen(strcat(File,'.out'),'W');
+BigFile = fopen(File,'W');
 for n = 1:NoOfFiles
     % Retrieve data from small files
     FileToConvert = strcat(File,int2str(n),'.out');
