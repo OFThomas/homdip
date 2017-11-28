@@ -7,7 +7,7 @@ datafile=raw_input() # read in data file
 #hardcoded for testing
 #datafile='apd800mv300s.out'
 #time window
-nstime=10
+nstime=20
 #no. of bins
 bins=50
 
@@ -32,12 +32,12 @@ for i in range(1, len(channel)-1):
  		 delay.append((time[i+1] - time[i])/10**12)
 
 chnlratio=float(countchnl0)/float(countchnl1)
-if chnlratio < 1.0:
-	chnlratio = 1/float(chnlratio)
+#if chnlratio < 1.0:
+#	chnlratio = 1/float(chnlratio)
 
-if (chnlratio >= 1):
-	print 'ERROR: Ratio of channels =', chnlratio
-	print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
+#if (chnlratio >= 1):
+print 'ERROR: Ratio of channels =', chnlratio
+print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
 
 #write out delay if order of nano seconds
 for i in range(1,len(delay)):
@@ -55,5 +55,5 @@ plt.title('Time between counts ')
 
 #save graph 
 d_name = datafile +'.png'
-plt.savefig('./png/'+d_name, format='png')
+plt.savefig(d_name, format='png')
 plt.clf()
