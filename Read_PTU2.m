@@ -55,7 +55,7 @@ function Read_PTU2(filename) % Read PicoQuant Unified TTTR Files
     MeasDesc_GlobalResolution = 0;
 
     % start Main program
-    pathname = pwd;
+    pathname = strcat(pwd,'\');
     fid = fopen(filename);
     
     fprintf(1,'\n');
