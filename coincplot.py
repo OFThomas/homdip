@@ -15,15 +15,30 @@ bins=50
 window=nstime*10**(-9)
 delay=[]
 count=0
-
+countchnl0=0
+countchnl1=0
 #split data into two columns
 channel, time = np.genfromtxt(datafile, unpack=True)
 
 for i in range(1, len(channel)-1):
+	if channel[i] == 0:
+		countchnl0 += 1
+	elif channel[i] == 1:
+		countchnl1 += 1
+
 	#look for 0 then 1
 	if (channel[i] == 0 and  channel[i+1]==1) or (channel[i]==1 and channel[i+1]==0):
 		#covert from picos to seconds
  		 delay.append((time[i+1] - time[i])/10**12)
+
+chnlratio=float(countchnl0)/float(countchnl1)
+
+if (chnlratio >= 2):
+	print 'ERROR: Ratio of channels =', chnlratio
+	print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
+elif (chnlratio <= 2):
+	print 'ERROR: Ratio of channels =', 1/float(chnlratio)
+	print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
 
 #write out delay if order of nano seconds
 for i in range(1,len(delay)):
@@ -32,7 +47,6 @@ for i in range(1,len(delay)):
 		count+=1
 
 print 'time window', nstime,'ns', 'Counts',count
-
 
 #plot
 plt.hist(delay,bins=bins, range=(0,window))
@@ -44,6 +58,3 @@ plt.title('Time between counts ')
 d_name = datafile +'.png'
 plt.savefig(d_name, format='png')
 plt.clf()
-
-
-
