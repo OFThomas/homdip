@@ -48,12 +48,12 @@ for i in range(1,len(delay)):
 print 'time window', nstime,'ns', 'Coincidences',count
 
 #plot
-plt.hist(delay,bins=bins, range=(0,window))
-plt.ylabel('Counts')
-plt.xlabel('Time window (s)')
-plt.title('Time between counts ')
+#plt.hist(delay,bins=bins, range=(0,window))
+#plt.ylabel('Counts')
+#plt.xlabel('Time window (s)')
+#plt.title('Time between counts ')
 
 #save graph 
-d_name = datafile +'.png'
-plt.savefig(d_name, format='png')
-plt.clf()
+#d_name = datafile +'.png'
+#plt.savefig(d_name, format='png')
+#plt.clf()
