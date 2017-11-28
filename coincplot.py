@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-datafile=raw_input() # read in data file
+datafile=raw_input('file name:') # read in data file
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
