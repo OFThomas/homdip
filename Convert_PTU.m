@@ -10,6 +10,14 @@ end
 
 
 % Add everything to one big file
+
+% New file name
+File = File(1:end-1);
+FileTime = str2num(File(end-1:end));
+File = File(1:end-2);
+File = strcat(File,int2str(FileTime*NoOfFiles),'s');
+
+% Create new file
 BigFile = fopen(strcat(File,'.out'),'W');
 for n = 1:NoOfFiles
     % Retrieve data from small files
