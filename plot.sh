@@ -1,5 +1,4 @@
-rm temp.txt
-for file in ./tTL500mv60s*.out
+for file in ./t300s*.out
 do
 echo $file 
 python coincplot.py << EOF
