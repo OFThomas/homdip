@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-datafile=raw_input('file name:') # read in data file
+#datafile=raw_input('file name:') # read in data file
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
-#datafile='apd800mv300s.out'
+datafile='tTA1P0LA2P1_nopump.out'
 #time window
 nstime=10
 #no. of bins
@@ -48,12 +48,12 @@ for i in range(1,len(delay)):
 print 'time window', nstime,'ns', 'Coincidences',count
 
 #plot
-#plt.hist(delay,bins=bins, range=(0,window))
-#plt.ylabel('Counts')
-#plt.xlabel('Time window (s)')
-#plt.title('Time between counts ')
+plt.hist(delay,bins=bins, range=(0,window))
+plt.ylabel('Counts')
+plt.xlabel('Time window (s)')
+plt.title('Time between counts ')
 
 #save graph 
-#d_name = datafile +'.png'
-#plt.savefig(d_name, format='png')
-#plt.clf()
+d_name = datafile +'.png'
+plt.savefig(d_name, format='png')
+plt.clf()

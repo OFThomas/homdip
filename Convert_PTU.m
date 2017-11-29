@@ -14,7 +14,7 @@ BigFile = fopen(strcat(File,'.out'),'W');
 for n = 1:NoOfFiles
     % Retrieve data from small files
     FileToConvert = strcat(File,int2str(n),'.out');
-    SmallFile = fopen(FileToConvert);
+    SmallFile = fopen(FileToConvert);   
     Data = fscanf(SmallFile, '%d %f', [2 Inf]);
     fclose(SmallFile);
     
