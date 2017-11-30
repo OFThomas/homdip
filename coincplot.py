@@ -6,6 +6,7 @@ datafile=raw_input('file name:') # read in data file
 
 #hardcoded for testing
 #datafile='tTA1P0LA2P1_nopump.out'
+
 #time window
 nstime=10
 #no. of bins
@@ -32,10 +33,7 @@ for i in range(1, len(channel)-1):
  		 delay.append((time[i+1] - time[i])/10**12)
 
 chnlratio=float(countchnl0)/float(countchnl1)
-#if chnlratio < 1.0:
-#	chnlratio = 1/float(chnlratio)
 
-#if (chnlratio >= 1):
 print 'ERROR: Ratio of channels =', chnlratio
 print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(channel)
 
