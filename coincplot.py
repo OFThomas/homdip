@@ -1,15 +1,15 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-#datafile=raw_input('file name:') # read in data file
+datafile=raw_input('file name:') # read in data file
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
-datafile='tTA1P0LA2P1_nopump.out'
+#datafile='tTA1P0LA2P1_nopump.out'
 #time window
 nstime=10
 #no. of bins
-bins=50
+bins=500
 
 #max range of histogram to plot
 window=nstime*10**(-9)
