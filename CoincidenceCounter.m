@@ -8,7 +8,7 @@ NoOfPhotons = size(Data,2);   % Total number of records
 Delay = [];
 
 CoincidenceCount = 0;
-TimeWindow = 5;
+TimeWindow = 10;
 
 for n = 1:NoOfPhotons-1
     if Channel(n) ~= Channel(n+1)   % Arrival channel different
@@ -28,7 +28,12 @@ NoOfBins = TimeWindow/BinWidth;
 [y, x] = hist(Delay, NoOfBins);
 gaussEqn = 'a*exp(-((x-b)/c)^2/2)+d';  
 StartPts = [350 1.5 0.5 10];  
-f = fit(x', y', gaussEqn, 'Start', StartPts)
+f = fit(x', y', gaussEqn, 'Start', StartPts);
+coeffs = coeffvalues(f);
+% Important information from fitted model
+Mean = coeffs(2);
+StandardDeviation = coeffs(3);
+Accidentals = round(TimeWindow*coeffs(4));
 
 % Plot histogram and fitted Gaussian
 histogram(Delay, NoOfBins);  
