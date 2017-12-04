@@ -27,7 +27,7 @@ NoOfBins = TimeWindow/BinWidth;
 % Fit gaussian to the histogram
 [y, x] = hist(Delay, NoOfBins);
 gaussEqn = 'a*exp(-((x-b)/c)^2/2)+d';  
-StartPts = [350 1.5 0.5 10];  
+StartPts = [max(y) 1.5 0.5 min(y)];  
 f = fit(x', y', gaussEqn, 'Start', StartPts);
 coeffs = coeffvalues(f);
 % Important information from fitted model
@@ -36,6 +36,7 @@ StandardDeviation = coeffs(3);
 Accidentals = round(TimeWindow*coeffs(4));
 
 % Plot histogram and fitted Gaussian
+figure;
 histogram(Delay, NoOfBins);  
 hold on;
 p = plot(f,x,y);
@@ -45,6 +46,7 @@ legend('off');
 title([filename, ' Time distribution of ', num2str(CoincidenceCount),' coincidences'], 'Interpreter','none');
 xlabel('Time (ns)');
 ylabel('Counts');
+hold off;
 
 
 
