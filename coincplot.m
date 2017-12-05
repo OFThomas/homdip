@@ -32,7 +32,7 @@ for i=1:15%(length(file)-1)
         index = index + 1;
     end
 end
-countchnl0;
-countchnl1;
+countchnl0
+countchnl1
 
 delay(1:15)
