@@ -1,4 +1,4 @@
-function Read_PTU2 % Read PicoQuant Unified TTTR Files
+function Read_PTU2(filename) % Read PicoQuant Unified TTTR Files
 % This is demo code. Use at your own risk. No warranties.
 % Marcus Sackrow, PicoQuant GmbH, December 2013
 % Peter Kapusta, PicoQuant GmbH, November 2016

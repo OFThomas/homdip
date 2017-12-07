@@ -21,7 +21,7 @@ end
 
 Delay = Delay/1000; % Delay between photons is given in ns
 
-BinWidth = 0.05;  % 100 bins for every 5ns
+BinWidth = 0.025;  % 100 bins for every 2.5ns
 NoOfBins = TimeWindow/BinWidth;
 
 % Fit gaussian to the histogram
@@ -33,7 +33,7 @@ coeffs = coeffvalues(f);
 % Important information from fitted model
 Mean = coeffs(2);
 StandardDeviation = coeffs(3);
-Accidentals = round(TimeWindow*coeffs(4));
+Accidentals = round(NoOfBins*coeffs(4));
 
 % Plot histogram and fitted Gaussian
 figure;

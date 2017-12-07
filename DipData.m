@@ -1,16 +1,17 @@
 % Gets coincidences for the dip from all the files
 
-Dist = 28780:2:28920;
-NoOfMeasurements = length(Dist);
-Coincidences = zeros(length(Dist));
+FileNames = importdata('homdipdata.txt');
+NoOfMeasurements = length(FileNames);
+Coincidences = zeros(NoOfMeasurements);
+Dist = zeros(NoOfMeasurements);
 
 for n = 1:NoOfMeasurements
     % Convert .ptu to .out file
-    PTUfile = strcat('d',int2str(Dist(n)),'.ptu');
+    PTUfile = char(FileNames(n));
     Read_PTU2(PTUfile);
     
     % Get data from .out file
-    OUTfile = strcat('d',int2str(Dist(n)),'.out');
+    OUTfile = strcat(PTUfile(1:end-4),'.out');
     Data = importdata(OUTfile)';
     Channel = Data(1,:);    % Arrival channel
     TimeOfArrival = Data(2,:);    % Arrival time (in picoseconds)
@@ -24,5 +25,8 @@ for n = 1:NoOfMeasurements
             end
         end
     end
+    
+    Dist(n) = str2double(PTUfile(1:end-4));
 end
+
 
