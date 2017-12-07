@@ -8,7 +8,7 @@ NoOfPhotons = size(Data,2);   % Total number of records
 Delay = [];
 
 CoincidenceCount = 0;
-TimeWindow = 10;
+TimeWindow = 2.5;
 
 for n = 1:NoOfPhotons-1
     if Channel(n) ~= Channel(n+1)   % Arrival channel different
