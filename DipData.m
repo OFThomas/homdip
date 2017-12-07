@@ -2,8 +2,8 @@
 
 FileNames = importdata('homdipdata.txt');
 NoOfMeasurements = length(FileNames);
-Coincidences = zeros(NoOfMeasurements);
-Dist = zeros(NoOfMeasurements);
+Coincidences = zeros(1,NoOfMeasurements);
+Dist = zeros(1,NoOfMeasurements);
 
 for n = 1:NoOfMeasurements
     % Convert .ptu to .out file
