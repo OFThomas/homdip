@@ -1,11 +1,12 @@
 import numpy as np
+import scipy.stats as stats
 import matplotlib.pyplot as plt
 
-datafile=raw_input('file name:') # read in data file
+#datafile=raw_input('file name:') # read in data file
 #coincidencewindow=float(raw_input('Enter coincidence window (ns): ')) #read coinc window
 
 #hardcoded for testing
-#datafile='tTA1P0LA2P1_nopump.out'
+datafile='tT1L2_1s.out'
 #time window
 nstime=10
 #no. of bins
@@ -42,10 +43,14 @@ print 'Channel 0:', countchnl0, 'Channel 1:', countchnl1, 'Tot counts:', len(cha
 #write out delay if order of nano seconds
 for i in range(1,len(delay)):
 	if delay[i] <= window:
-#		print i, delay[i]
+#		print delay[i]
 		count+=1
 
 print 'time window', nstime,'ns', 'Coincidences',count
+
+# Test for normality
+delay = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1] 
+print('normaltest teststat = %6.3f pvalue = %6.4f' % stats.normaltest(delay))
 
 #plot
 plt.hist(delay,bins=bins, range=(0,window))
