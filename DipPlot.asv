@@ -18,11 +18,11 @@ f = fit(Distum', Coincidences', fitEqn, 'Start', StartPts);
 figure;
 p = plot(f, Distum, Coincidences);
 hold on;
-plot(Distum, Accidentals,'.c','MarkerSize',10);
+plot(Distum, Accidentals,'.g','MarkerSize',10);
 set(p, 'MarkerSize',10);
 xlim([min(Distum) max(Distum)]);
 ylim([0 max(Coincidences+1000)]);
 xlabel('Path Difference \mum');
 ylabel('Coincidences / s');
-legend('Data','Fitted','Accidentals');
+lege
 title('HOM Dip');
