@@ -2,9 +2,9 @@
 
 % Get the coincidence data for the plot
 %DipData;
-Accidentals = Accidentals_1712_2;
-Coincidences = Coincidences_1712_2;
-Dist = Dist_1712_2;
+Accidentals = Accidentals_0712;
+Coincidences = Coincidences_0712;
+Dist = Dist_1712;
 
 % Distance in um and centred on the dip
 Distum = (Dist-median(Dist))*1000;
@@ -18,11 +18,11 @@ f = fit(Distum', Coincidences', fitEqn, 'Start', StartPts);
 figure;
 p = plot(f, Distum, Coincidences);
 hold on;
-plot(Distum, Accidentals,'.g','MarkerSize',10);
-set(p, 'MarkerSize',10);
+plot(Distum, Accidentals,'.c','MarkerSize',10);
+set(p, 'LineWidth', 1.2);
+set(p, 'MarkerSize', 10);
 xlim([min(Distum) max(Distum)]);
 ylim([0 max(Coincidences+1000)]);
 xlabel('Path Difference \mum');
 ylabel('Coincidences / s');
-lege
-title('HOM Dip');
+legend('Data','Fitted','Accidentals');
